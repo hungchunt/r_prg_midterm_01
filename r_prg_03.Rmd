@@ -1,0 +1,58 @@
+---
+title: "r_prg_04"
+author: "Hung-Chun Tung"
+date: "2017年2月11日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#<font color=#003377 face="標楷體">**期中作業_簡單的繪圖(ggplot2)</font>**
+
+##<font face="標楷體"> 。散佈圖</font>
+
+```{r message = FALSE, warning = FALSE}
+library(ggplot2)
+ggplot(DNase, aes( x = conc, y = density)) +
+    geom_point() +
+    ggtitle("DNase con. vs. density") +
+    xlab("Concentration") +
+    ylab("Density") +
+    geom_smooth(method = "lm", se = FALSE)
+```
+
+##<font face="標楷體"> 。線圖</font>
+
+```{r message = FALSE, warning = FALSE}
+ggplot(BOD, aes(x = Time , y = demand)) +
+  geom_line() + 
+  ggtitle("Biochemical oxygen demand")
+```
+
+##<font face="標楷體"> 。直方圖</font>
+
+```{r message=FALSE, warning=FALSE}
+ggplot(mpg, aes(x = displ)) +
+  geom_histogram(bins = 20)
+```
+
+##<font face="標楷體"> 。盒鬚圖</font>
+
+```{r message = FALSE, warning=FALSE}
+ggplot(mpg, aes(x = class, y = hwy)) +
+  geom_boxplot(aes(fill = class))
+```
+
+##<font face="標楷體"> 。長條圖</font>
+
+```{r message = FALSE, warning = FALSE}
+ggplot(mpg, aes(x = class)) +
+  geom_bar(aes(fill = manufacturer), position = "fill") +
+  ylab("Percentage")
+```
+
+
+
+  
